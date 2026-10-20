@@ -1,0 +1,25 @@
+name: 规则反馈
+description: 全局规则不顺手、互相矛盾、太啰嗦，或缺了该有的规定
+title: "规则反馈："
+labels: [rules-feedback]
+body:
+  - type: textarea
+    id: situation
+    attributes:
+      label: 遇到的情况
+      description: 实际遇到了什么。不要写账号、密钥、个人信息或项目隐私。
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: 涉及哪条规则
+      description: AGENTS.md 哪一节哪一条；缺规定时写应该放在哪一节。
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: 建议怎么改
+    validations:
+      required: true
