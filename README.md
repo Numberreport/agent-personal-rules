@@ -14,6 +14,14 @@ AGENTS.md 这个文件名不能保证所有智能体自动读取。接入后应�
 
 用文件链接接入的，会自动使用更新后的内容；复制文件或填写自定义指令的，更新后需要再同步一次。
 
+## Ekko Studio
+
+Ekko Studio 的全局入口是「设置 → 全局 Prompt 指令」，对应配置文件 `~/.hermes-web-ui/.ekko/config/config.json` 里的 `prompt.instructions`。把 AGENTS.md 全文作为一个条目填入，它附加到每次 Ekko 运行。
+
+内容从 GitHub 原文取，不要从本机副本复制：`https://raw.githubusercontent.com/Numberreport/agent-personal-rules/main/AGENTS.md`。Windows 下本地克隆是 CRLF 换行，粘贴过去会出现肉眼看不出的差异。
+
+这是复制式接入，不是文件链接。改完 AGENTS.md 后要重新填一次，或调用一次接口：`PUT /api/ekko/config`，body 为 `{"config":{"prompt":{"instructions":["<全文>"]}}}`。判断是否同步：回读的内容与 GitHub 原文算 sha256，一致即同步。
+
 ## 反馈
 
 使用中觉得规则不合适，到本仓库 Issues 按「规则反馈」表单提交，规矩见 AGENTS.md「规则同步」。
